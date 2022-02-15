@@ -7,8 +7,8 @@
         <label class="block text-gray-700">Role:</label>
         <select v-model="form.role" class="form-select mt-1 w-full">
           <option :value="null" />
+          <option value="admin">Admin</option>
           <option value="user">User</option>
-          <option value="owner">Owner</option>
         </select>
         <label class="block mt-4 text-gray-700">Trashed:</label>
         <select v-model="form.trashed" class="form-select mt-1 w-full">
@@ -44,12 +44,12 @@
           </td>
           <td class="border-t">
             <Link class="flex items-center px-6 py-4" :href="`/users/${user.id}/edit`" tabindex="-1">
-              {{ user.owner ? 'Owner' : 'User' }}
+              {{ user.role}}
             </Link>
           </td>
           <td class="w-px border-t">
             <Link class="flex items-center px-4" :href="`/users/${user.id}/edit`" tabindex="-1">
-              <icon name="cheveron-right" class="block w-6 h-6 fill-gray-400" />
+              <icon name="cheveron-right" class="block w-9 h-9 fill-gray-600" />
             </Link>
           </td>
         </tr>

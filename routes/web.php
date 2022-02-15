@@ -1,13 +1,20 @@
 <?php
 
-use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\ContactsController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\ImagesController;
-use App\Http\Controllers\OrganizationsController;
-use App\Http\Controllers\ReportsController;
-use App\Http\Controllers\UsersController;
+use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\ImagesController;
+use App\Http\Controllers\ReportsController;
+use App\Http\Controllers\ContactsController;
+
+use App\Http\Controllers\Admin\UsersController;
+use App\Http\Controllers\User\TicketsController;
+use App\Http\Controllers\OrganizationsController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\CoordinateController;
+use App\Http\Controllers\Auth\RegistrationController;
+use App\Http\Controllers\Auth\VerificationController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,10 +27,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Guest
+
+Route::get('/welcome', function () {
+    return Inertia::render('Guest/Welcome');
+})->middleware('guest')->name('welcome');
+
+
+
 // Auth
 
+Route::post('register', [RegistrationController::class, 'store'])
+    ->name('register')
+    ->middleware('guest');
+
+Route::post('email/resend', [VerificationController::class, 'resend'])
+    ->name('verification.resend');
+
+Route::get('email/verify', [VerificationController::class, 'show'])
+    ->name('verification.notice');
+
+Route::get('email/verify/{id}/{hash}', [VerificationController::class, 'verify'])
+    ->name('verification.verify');
+
 Route::get('login', [AuthenticatedSessionController::class, 'create'])
-    ->name('login')
+    ->name('login.index')
     ->middleware('guest');
 
 Route::post('login', [AuthenticatedSessionController::class, 'store'])
@@ -33,110 +61,101 @@ Route::post('login', [AuthenticatedSessionController::class, 'store'])
 Route::delete('logout', [AuthenticatedSessionController::class, 'destroy'])
     ->name('logout');
 
+
+
+// ┌──────────────────────────────────────────────────────────────────────────────┐
+// │     Admin                                                                    │
+// └──────────────────────────────────────────────────────────────────────────────┘
+
 // Dashboard
 
 Route::get('/', [DashboardController::class, 'index'])
     ->name('dashboard')
-    ->middleware('auth');
+    ->middleware(['auth', 'verified']);
+
 
 // Users
+Route::resource('/users', UsersController::class)->middleware(['auth', 'verified']);
 
-Route::get('users', [UsersController::class, 'index'])
-    ->name('users')
-    ->middleware('auth');
-
-Route::get('users/create', [UsersController::class, 'create'])
-    ->name('users.create')
-    ->middleware('auth');
-
-Route::post('users', [UsersController::class, 'store'])
-    ->name('users.store')
-    ->middleware('auth');
-
-Route::get('users/{user}/edit', [UsersController::class, 'edit'])
-    ->name('users.edit')
-    ->middleware('auth');
-
-Route::put('users/{user}', [UsersController::class, 'update'])
-    ->name('users.update')
-    ->middleware('auth');
-
-Route::delete('users/{user}', [UsersController::class, 'destroy'])
-    ->name('users.destroy')
-    ->middleware('auth');
 
 Route::put('users/{user}/restore', [UsersController::class, 'restore'])
     ->name('users.restore')
-    ->middleware('auth');
+    ->middleware(['auth', 'verified']);
 
-// Organizations
 
-Route::get('organizations', [OrganizationsController::class, 'index'])
-    ->name('organizations')
-    ->middleware('auth');
 
-Route::get('organizations/create', [OrganizationsController::class, 'create'])
-    ->name('organizations.create')
-    ->middleware('auth');
+// Coordinate
+Route::get('/coordinate/login/', [CoordinateController::class, 'login'])->middleware(['auth', 'verified']);
+Route::get('/coordinate/logout/', [CoordinateController::class, 'logout'])->middleware(['auth', 'verified']);
+Route::resource('/coordinate', CoordinateController::class)->middleware(['auth', 'verified']);
 
-Route::post('organizations', [OrganizationsController::class, 'store'])
-    ->name('organizations.store')
-    ->middleware('auth');
 
-Route::get('organizations/{organization}/edit', [OrganizationsController::class, 'edit'])
-    ->name('organizations.edit')
-    ->middleware('auth');
 
-Route::put('organizations/{organization}', [OrganizationsController::class, 'update'])
-    ->name('organizations.update')
-    ->middleware('auth');
 
-Route::delete('organizations/{organization}', [OrganizationsController::class, 'destroy'])
-    ->name('organizations.destroy')
-    ->middleware('auth');
 
-Route::put('organizations/{organization}/restore', [OrganizationsController::class, 'restore'])
-    ->name('organizations.restore')
-    ->middleware('auth');
 
-// Contacts
 
-Route::get('contacts', [ContactsController::class, 'index'])
-    ->name('contacts')
-    ->middleware('auth');
+// ┌──────────────────────────────────────────────────────────────────────────────┐
+// │     User                                                                     │
+// └──────────────────────────────────────────────────────────────────────────────┘
 
-Route::get('contacts/create', [ContactsController::class, 'create'])
-    ->name('contacts.create')
-    ->middleware('auth');
 
-Route::post('contacts', [ContactsController::class, 'store'])
-    ->name('contacts.store')
-    ->middleware('auth');
 
-Route::get('contacts/{contact}/edit', [ContactsController::class, 'edit'])
-    ->name('contacts.edit')
-    ->middleware('auth');
+Route::resource('/tickets', TicketsController::class)->middleware(['auth', 'verified']);
+Route::get('/tickets/download/{id}', [TicketsController::class, 'download'])->middleware(['auth', 'verified']);
 
-Route::put('contacts/{contact}', [ContactsController::class, 'update'])
-    ->name('contacts.update')
-    ->middleware('auth');
 
-Route::delete('contacts/{contact}', [ContactsController::class, 'destroy'])
-    ->name('contacts.destroy')
-    ->middleware('auth');
 
-Route::put('contacts/{contact}/restore', [ContactsController::class, 'restore'])
-    ->name('contacts.restore')
-    ->middleware('auth');
 
-// Reports
 
-Route::get('reports', [ReportsController::class, 'index'])
-    ->name('reports')
-    ->middleware('auth');
 
-// Images
 
-Route::get('/img/{path}', [ImagesController::class, 'show'])
-    ->where('path', '.*')
-    ->name('image');
+
+
+
+
+
+
+
+
+// // Contacts
+
+// Route::get('contacts', [ContactsController::class, 'index'])
+//     ->name('contacts')
+//     ->middleware('auth');
+
+// Route::get('contacts/create', [ContactsController::class, 'create'])
+//     ->name('contacts.create')
+//     ->middleware('auth');
+
+// Route::post('contacts', [ContactsController::class, 'store'])
+//     ->name('contacts.store')
+//     ->middleware('auth');
+
+// Route::get('contacts/{contact}/edit', [ContactsController::class, 'edit'])
+//     ->name('contacts.edit')
+//     ->middleware('auth');
+
+// Route::put('contacts/{contact}', [ContactsController::class, 'update'])
+//     ->name('contacts.update')
+//     ->middleware('auth');
+
+// Route::delete('contacts/{contact}', [ContactsController::class, 'destroy'])
+//     ->name('contacts.destroy')
+//     ->middleware('auth');
+
+// Route::put('contacts/{contact}/restore', [ContactsController::class, 'restore'])
+//     ->name('contacts.restore')
+//     ->middleware('auth');
+
+// // Reports
+
+// Route::get('reports', [ReportsController::class, 'index'])
+//     ->name('reports')
+//     ->middleware('auth');
+
+// // Images
+
+// Route::get('/img/{path}', [ImagesController::class, 'show'])
+//     ->where('path', '.*')
+//     ->name('image');

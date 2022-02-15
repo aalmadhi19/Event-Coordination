@@ -2,11 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Account;
-use App\Models\Contact;
-use App\Models\Organization;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Role;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,10 +16,11 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         User::create([
-            'name' => 'azoz',
-            'email' => 'johndoe@example.com',
-            'password' => 'secret',
+            'name' => 'Admin',
+            'email' => 'Admin@nizer.com',
+            'password' => '12345678',
         ]);
-
+        Role::create(['name' => 'Admin']);
+        User::first()->assignRole('Admin');
     }
 }

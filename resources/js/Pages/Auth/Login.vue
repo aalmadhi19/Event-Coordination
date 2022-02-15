@@ -2,7 +2,7 @@
   <Head title="Login" />
   <div class="flex items-center justify-center p-6 min-h-screen bg-indigo-800">
     <div class="w-full max-w-md">
-      <logo class="block mx-auto w-full max-w-xs fill-white" height="50" />
+      <logo class="block mx-auto fill-white" height="120" width="80" />
       <form class="mt-8 bg-white rounded-lg shadow-xl overflow-hidden" @submit.prevent="login">
         <div class="px-10 py-12">
           <h1 class="text-center text-3xl font-bold">Welcome Back!</h1>
@@ -15,6 +15,9 @@
           </label>
         </div>
         <div class="flex px-10 py-4 bg-gray-100 border-t border-gray-100">
+          <Link :href="'/'" class="underline text-sm text-gray-600 hover:text-gray-900 mt-5">
+            Register?
+          </Link>
           <loading-button :loading="form.processing" class="btn-indigo ml-auto" type="submit">Login</loading-button>
         </div>
       </form>
@@ -23,7 +26,7 @@
 </template>
 
 <script>
-import { Head } from '@inertiajs/inertia-vue3'
+import { Head, Link } from '@inertiajs/inertia-vue3'
 import Logo from '@/Shared/Logo'
 import TextInput from '@/Shared/TextInput'
 import LoadingButton from '@/Shared/LoadingButton'
@@ -31,6 +34,7 @@ import LoadingButton from '@/Shared/LoadingButton'
 export default {
   components: {
     Head,
+    Link,
     LoadingButton,
     Logo,
     TextInput,
