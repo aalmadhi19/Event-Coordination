@@ -18,6 +18,8 @@ class CreateTicketsTable extends Migration
             $table->string('user_id');
             $table->string('qr_path');
             $table->string('form_id');
+            $table->string('status')->default('none');
+            $table->date('expiration');
             $table->timestamps();
         });
     }

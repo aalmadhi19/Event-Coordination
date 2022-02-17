@@ -44,7 +44,6 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array<string, string>
      */
     protected $casts = [
-        'owner' => 'boolean',
         'email_verified_at' => 'datetime',
     ];
 
@@ -92,10 +91,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function scopeWhereRole($query, $role)
     {
         switch ($role) {
-            case 'admin':
-                return $query->where('admin', true);
-            case 'user':
-                return $query->where('admin', false);
+            case 'Admin':
+                return $query->role('Admin');
+            case 'User':
+                return $query->role('User');
         }
     }
 

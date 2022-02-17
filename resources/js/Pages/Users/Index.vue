@@ -7,8 +7,8 @@
         <label class="block text-gray-700">Role:</label>
         <select v-model="form.role" class="form-select mt-1 w-full">
           <option :value="null" />
-          <option value="admin">Admin</option>
-          <option value="user">User</option>
+          <option value="Admin">Admin</option>
+          <option value="User">User</option>
         </select>
         <label class="block mt-4 text-gray-700">Trashed:</label>
         <select v-model="form.trashed" class="form-select mt-1 w-full">
@@ -29,7 +29,7 @@
           <th class="pb-4 pt-6 px-6">Email</th>
           <th class="pb-4 pt-6 px-6" colspan="2">Role</th>
         </tr>
-        <tr v-for="user in users" :key="user.id" class="hover:bg-gray-100 focus-within:bg-gray-100">
+        <tr v-for="user in users.data" :key="user.id" class="hover:bg-gray-100 focus-within:bg-gray-100">
           <td class="border-t">
             <Link class="flex items-center px-6 py-4 focus:text-indigo-500" :href="`/users/${user.id}/edit`">
               <img v-if="user.photo" class="block -my-2 mr-2 w-5 h-5 rounded-full" :src="user.photo" />
@@ -44,7 +44,7 @@
           </td>
           <td class="border-t">
             <Link class="flex items-center px-6 py-4" :href="`/users/${user.id}/edit`" tabindex="-1">
-              {{ user.role}}
+              {{ user.role }}
             </Link>
           </td>
           <td class="w-px border-t">
@@ -53,11 +53,12 @@
             </Link>
           </td>
         </tr>
-        <tr v-if="users.length === 0">
+        <tr v-if="users.data.length === 0">
           <td class="px-6 py-4 border-t" colspan="4">No users found.</td>
         </tr>
       </table>
     </div>
+    <Pagination class="mt-6" :links="users.links" />
   </div>
 </template>
 
@@ -69,6 +70,7 @@ import Layout from '@/Shared/Layout'
 import throttle from 'lodash/throttle'
 import mapValues from 'lodash/mapValues'
 import SearchFilter from '@/Shared/SearchFilter'
+import Pagination from '@/Shared/Pagination'
 
 export default {
   components: {
@@ -76,11 +78,12 @@ export default {
     Icon,
     Link,
     SearchFilter,
+    Pagination,
   },
   layout: Layout,
   props: {
     filters: Object,
-    users: Array,
+    users: Object,
   },
   data() {
     return {

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="user.role == 'Admin'">
+  <div v-if="$page.props.auth.user.role == 'Admin'">
     <div class="mb-4">
       <Link class="group flex items-center py-3" href="/">
         <icon name="dashboard" class="mr-2 w-4 h-4" :class="isUrl('') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white'" />
@@ -19,14 +19,14 @@
       </Link>
     </div>
     <div class="mb-4">
-      <Link class="group flex items-center py-3" href="/reports">
-        <icon name="printer" class="mr-2 w-4 h-4" :class="isUrl('reports') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white'" />
-        <div :class="isUrl('reports') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">Reports</div>
+      <Link class="group flex items-center py-3" href="/management">
+        <icon name="gear" class="mr-2 w-4 h-4" :class="isUrl('management') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white'" />
+        <div :class="isUrl('management') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">Management</div>
       </Link>
     </div>
   </div>
 
-  
+
   <div v-else>
     <div class="mb-4">
       <Link class="group flex items-center py-3" href="/tickets">

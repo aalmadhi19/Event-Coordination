@@ -17,6 +17,5 @@
 </head>
 <body class=" leading-none text-gray-700 antialiased">
     @inertia
-{{--    @include('test')--}}
 </body>
 </html>

@@ -46,8 +46,7 @@ class Utils
 
         $filePath = self::filePath();
 
-        QrCode::generate($QrCode, $filePath);
-
+        QrCode::color(220, 52, 83)->generate($QrCode, $filePath);
         return $filePath;
     }
 }

@@ -4,9 +4,8 @@
     <h1 class="mb-8 text-3xl font-bold">Coordination</h1>
 
     <div className="grid grid-cols-12 gap-6">
-      <Cards :icon="'fa-solid fa-right-to-bracket'" :title="'تسجيل دخول الحضور'" link="coordinate/login" />
-      <Cards :icon="'fa-solid fa-hand-wave'" :title="'تسجيل خروج الحضور'" link="coordinate/logout" />
-
+      <Cards :icon="'fa-solid fa-right-to-bracket'" :title="'Login'" link="/coordinate/login" />
+      <Cards :icon="'fa-solid fa-right-to-bracket'" :title="'Logout'" link="/coordinate/logout" />
     </div>
   </div>
 </template>

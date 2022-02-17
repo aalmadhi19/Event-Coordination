@@ -21,22 +21,12 @@ export default {
   layout: Layout,
 
   props: {
-    tickets: Array,
-    ticketsIn: Number,
-    ticketsOut: Number,
+
   },
 
-  created() {
-    this.interval = setInterval(() => this.getData(), 5000)
-  },
 
   methods: {
-    getData() {
-      var currentUrl = window.location.pathname
-      if (currentUrl == '/') {
-        this.$inertia.reload()
-      }
-    },
+
   },
 }
 </script>

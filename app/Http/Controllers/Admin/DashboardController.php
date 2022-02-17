@@ -3,15 +3,18 @@
 namespace App\Http\Controllers\Admin;
 
 use Inertia\Inertia;
-use App\Models\JotForm;
+use App\Models\Ticket;
 use App\Http\Controllers\Admin\AdminBaseController;
+use Illuminate\Support\Facades\Request;
 
 class DashboardController extends AdminBaseController
 {
-    public function index()
+    public function index(Request $request)
     {
         return Inertia::render('Dashboard/Index', [
-            'forms' => JotForm::Forms()  ,
+            'tickets' => Ticket::all(),
+            'ticketsIn' => Ticket::whereStatus('In')->count(),
+            'ticketsOut' => Ticket::whereStatus('Out')->count(),
         ]);
     }
 }

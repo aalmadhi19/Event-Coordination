@@ -1664,7 +1664,7 @@
     "picocolors" "^1.0.0"
     "postcss-value-parser" "^4.1.0"
 
-"axios@^0.21.1":
+"axios@^0.21.1", "axios@^0.21.4":
   "integrity" "sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg=="
   "resolved" "https://registry.npmjs.org/axios/-/axios-0.21.4.tgz"
   "version" "0.21.4"
@@ -1928,6 +1928,11 @@
   dependencies:
     "function-bind" "^1.1.1"
     "get-intrinsic" "^1.0.2"
+
+"callforth@^0.3.1":
+  "integrity" "sha512-Q2zPfqnwoKsb1DTVCr4lmhe49wKNBsMmNlbudjleu3/co+Nw1pOqFHYJHrW3VZ253ou9AAr+xauQR0C55NPdzA=="
+  "resolved" "https://registry.npmjs.org/callforth/-/callforth-0.3.1.tgz"
+  "version" "0.3.1"
 
 "callsites@^3.0.0":
   "integrity" "sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ=="
@@ -2237,6 +2242,11 @@
   dependencies:
     "browserslist" "^4.18.1"
     "semver" "7.0.0"
+
+"core-js@^3.6.5":
+  "integrity" "sha512-YUdI3fFu4TF/2WykQ2xzSiTQdldLB4KVuL9WeAy5XONZYt5Cun/fpQvctoKbCgvPhmzADeesTk/j2Rdx77AcKQ=="
+  "resolved" "https://registry.npmjs.org/core-js/-/core-js-3.21.0.tgz"
+  "version" "3.21.0"
 
 "core-util-is@~1.0.0":
   "integrity" "sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ=="
@@ -5266,6 +5276,13 @@
     "hash-base" "^3.0.0"
     "inherits" "^2.0.1"
 
+"rtcpeerconnection-shim@^1.2.15":
+  "integrity" "sha512-C6DxhXt7bssQ1nHb154lqeL0SXz5Dx4RczXZu2Aa/L1NJFnEVDxFwCBo3fqtuljhHIGceg5JKBV4XJ0gW5JKyw=="
+  "resolved" "https://registry.npmjs.org/rtcpeerconnection-shim/-/rtcpeerconnection-shim-1.2.15.tgz"
+  "version" "1.2.15"
+  dependencies:
+    "sdp" "^2.6.0"
+
 "run-parallel@^1.1.9":
   "integrity" "sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA=="
   "resolved" "https://registry.npmjs.org/run-parallel/-/run-parallel-1.2.0.tgz"
@@ -5320,6 +5337,11 @@
     "ajv" "^8.8.0"
     "ajv-formats" "^2.1.1"
     "ajv-keywords" "^5.0.0"
+
+"sdp@^2.12.0", "sdp@^2.6.0":
+  "integrity" "sha512-jhXqQAQVM+8Xj5EjJGVweuEzgtGWb3tmEEpl3CLP3cStInSbVHSg0QWOGQzNq8pSID4JkpeV2mPqlMDLrm0/Vw=="
+  "resolved" "https://registry.npmjs.org/sdp/-/sdp-2.12.0.tgz"
+  "version" "2.12.0"
 
 "select-hose@^2.0.0":
   "integrity" "sha1-Yl2GWPhlr0Psliv8N2o3NZpJlMo="
@@ -5985,6 +6007,16 @@
     "@vue/server-renderer" "3.2.30"
     "@vue/shared" "3.2.30"
 
+"vue3-qrcode-reader@^0.0.1":
+  "integrity" "sha512-rTZRO2WiBrGRT6pYGMkySNMnEwD9sVlzl9kwPxQ4C0n7I4SXVu60eq8ZQHQTMJAbDTTkbuuW/5reSf+TYFJ5pQ=="
+  "resolved" "https://registry.npmjs.org/vue3-qrcode-reader/-/vue3-qrcode-reader-0.0.1.tgz"
+  "version" "0.0.1"
+  dependencies:
+    "callforth" "^0.3.1"
+    "core-js" "^3.6.5"
+    "vue" "^3.0.0"
+    "webrtc-adapter" "7.7.0"
+
 "watchpack@^2.3.1":
   "integrity" "sha512-x0t0JuydIo8qCNctdDrn1OzH/qDzk2+rdCOC3YzumZ42fiMqmQ7T3xQurykYMhYfHaPHTp4ZxAx2NfUo1K6QaA=="
   "resolved" "https://registry.npmjs.org/watchpack/-/watchpack-2.3.1.tgz"
@@ -6138,6 +6170,14 @@
     "consola" "^2.15.3"
     "pretty-time" "^1.1.0"
     "std-env" "^3.0.1"
+
+"webrtc-adapter@7.7.0":
+  "integrity" "sha512-7Bp9OBnx642oJRkom1tNAbeJjUadAq2rh5xLL9YXPw5hVyt2h4hHr5bcoPYDs1stp/mZHSPSQA34YISdnr0DBQ=="
+  "resolved" "https://registry.npmjs.org/webrtc-adapter/-/webrtc-adapter-7.7.0.tgz"
+  "version" "7.7.0"
+  dependencies:
+    "rtcpeerconnection-shim" "^1.2.15"
+    "sdp" "^2.12.0"
 
 "websocket-driver@^0.7.4", "websocket-driver@>=0.5.1":
   "integrity" "sha512-b17KeDIQVjvb0ssuSDF2cYXSg2iztliJ4B9WdsuB6J952qCPKmnVq4DyW5motImXHDC1cBT/1UezrJVsKw5zjg=="

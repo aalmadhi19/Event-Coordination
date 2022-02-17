@@ -46,6 +46,7 @@ class RegistrationController extends Controller
             // Create Ticket
             $ticket = Ticket::create([
                 'user_id' => $user->id,
+                'expiration' => now()->addYears(1),
             ]);
 
             $qrCodePath = Utils::qrCode($user);

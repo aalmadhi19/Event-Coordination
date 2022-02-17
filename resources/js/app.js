@@ -2,6 +2,7 @@ import { createApp, h } from 'vue'
 import { InertiaProgress } from '@inertiajs/progress'
 import { createInertiaApp } from '@inertiajs/inertia-vue3'
 import LoadScript from "vue-plugin-load-script";
+window.axios = require('axios');
 
 InertiaProgress.init()
 
