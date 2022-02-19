@@ -20,15 +20,17 @@ class CoordinateController extends AdminBaseController
     {
         return Inertia::render('Coordination/Login/Index', [
             'filters' => Requests::all('search', 'status'),
-            'current_attendees' => Ticket::filter(Requests::only('search', 'status'))
+            'tickets' => Ticket::filter(Requests::only('search', 'status'))
             ->with('user')->paginate(20),
         ]);
     }
 
     public function logout()
-    {        
+    {
         return Inertia::render('Coordination/Logout/Index', [
-            'current_attendees' => Ticket::with('user')->paginate(20),
+            'filters' => Requests::all('search', 'status'),
+            'tickets' => Ticket::filter(Requests::only('search', 'status'))
+            ->with('user')->paginate(20),
         ]);
     }
 

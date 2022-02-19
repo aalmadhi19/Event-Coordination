@@ -1,6 +1,6 @@
 <template>
   <div className="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white shadow-lg rounded-sm border border-slate-200">
-    <Link  :href="link" tabindex="-1">
+    <Link :href="link" tabindex="-1">
       <div className="px-5 pt-5">
         <header className="flex justify-between items-start mb-2">
           <i :class="icon"></i>
@@ -24,7 +24,7 @@ export default {
   props: {
     icon: String,
     title: String,
-    value: String,
+    value: [String, Number],
     link: String,
   },
 }

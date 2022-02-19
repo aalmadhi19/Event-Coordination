@@ -5,6 +5,7 @@ const webpackConfig = require('./webpack.config')
 mix
   .options({ manifest: false })
   .js('resources/js/ssr.js', 'public/js')
+   .postCss('resources/css/DB.css', 'public/css')
   .vue({ version: 3, options: { optimizeSSR: true } })
   .webpackConfig({
     ...webpackConfig,

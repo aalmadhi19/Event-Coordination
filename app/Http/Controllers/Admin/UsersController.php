@@ -8,7 +8,7 @@ use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\Admin\AdminBaseController;
-
+use Illuminate\Support\Facades\Hash;
 
 class UsersController extends AdminBaseController
 {
@@ -48,11 +48,12 @@ class UsersController extends AdminBaseController
             'name' => Request::get('name'),
             'email' => Request::get('email'),
             'phone' => Request::get('phone'),
+            'password' => Hash::make('12345678'),
         ]);
         $user->assignRole(Request::get('role'));
 
 
-        return Redirect::route('users')->with('success', 'User created.');
+        return Redirect::back()->with('success', 'User created.');
     }
 
     public function edit(User $user)

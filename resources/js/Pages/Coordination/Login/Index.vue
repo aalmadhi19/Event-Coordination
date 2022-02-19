@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Head title="Login" />
+    <Head title="Login Gate" />
     <h1 class="mb-8 text-3xl font-bold">Login Gate</h1>
     <div class="flex items-center justify-between mb-6">
       <search-filter v-model="form.search" class="mr-4 w-full max-w-md" @reset="reset">
@@ -11,7 +11,7 @@
           <option value="out">Out</option>
         </select>
       </search-filter>
-      <div class="w-50 h-20 md:inline">
+      <div class="w-50 h-20">
         <qrcode-stream @decode="onDecode" @init="onInit" />
       </div>
     </div>
@@ -22,34 +22,34 @@
           <th class="pb-4 pt-6 px-6">Name</th>
           <th class="pb-4 pt-6 px-6" colspan="2">Status</th>
         </tr>
-        <tr v-for="attendee in current_attendees.data" :key="attendee.id" class="hover:bg-gray-100 focus-within:bg-gray-100">
+        <tr v-for="ticket in tickets.data" :key="ticket.id" class="hover:bg-gray-100 focus-within:bg-gray-100">
           <td class="border-t">
-            <Link class="flex items-center px-6 py-4" :href="`/users2/edit`" tabindex="-1">
-              {{ attendee.id }}
+            <Link class="flex items-center px-6 py-4" :href="`/tickets/${ticket.id}`" tabindex="-1">
+              {{ ticket.id }}
             </Link>
           </td>
           <td class="border-t">
-            <Link class="flex items-center px-6 py-4" :href="`/users2/edit`" tabindex="-1">
-              {{ attendee.user.name }}
+            <Link class="flex items-center px-6 py-4" :href="`/tickets/${ticket.id}`" tabindex="-1">
+              {{ ticket.user.name }}
             </Link>
           </td>
           <td class="border-t">
-            <Link class="flex items-center px-6 py-4" :href="`/users2/edit`" tabindex="-1">
-              {{ attendee.status }}
+            <Link class="flex items-center px-6 py-4" :href="`/tickets/${ticket.id}`" tabindex="-1">
+              {{ ticket.status }}
             </Link>
           </td>
           <td class="w-px border-t">
-            <Link class="flex items-center px-4" :href="`/users/1/edit`" tabindex="-1">
+            <Link class="flex items-center px-4" :href="`/tickets/${ticket.id}`" tabindex="-1">
               <icon name="cheveron-right" class="block w-9 h-9 fill-gray-600" />
             </Link>
           </td>
         </tr>
-        <tr v-if="current_attendees.length === 0">
-          <td class="px-6 py-4 border-t" colspan="4">No attendees found.</td>
+        <tr v-if="tickets.length === 0">
+          <td class="px-6 py-4 border-t" colspan="4">No tickets found.</td>
         </tr>
       </table>
     </div>
-    <Pagination class="mt-6" :links="current_attendees.links" />
+    <Pagination class="mt-6" :links="tickets.links" />
   </div>
 </template>
 
@@ -78,7 +78,7 @@ export default {
   layout: Layout,
   props: {
     filters: Object,
-    current_attendees: Object,
+    tickets: Object,
   },
   data() {
     return {

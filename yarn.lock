@@ -2243,7 +2243,7 @@
     "browserslist" "^4.18.1"
     "semver" "7.0.0"
 
-"core-js@^3.6.5":
+"core-js@^3.6.4", "core-js@^3.6.5":
   "integrity" "sha512-YUdI3fFu4TF/2WykQ2xzSiTQdldLB4KVuL9WeAy5XONZYt5Cun/fpQvctoKbCgvPhmzADeesTk/j2Rdx77AcKQ=="
   "resolved" "https://registry.npmjs.org/core-js/-/core-js-3.21.0.tgz"
   "version" "3.21.0"
@@ -5810,6 +5810,11 @@
   "resolved" "https://registry.npmjs.org/timsort/-/timsort-0.3.0.tgz"
   "version" "0.3.0"
 
+"tinycolor2@^1.4.2":
+  "integrity" "sha512-vJhccZPs965sV/L2sU4oRQVAos0pQXwsvTLkWYdqJ+a8Q5kPFzJTuOFwy7UniPli44NKQGAglksjvOcpo95aZA=="
+  "resolved" "https://registry.npmjs.org/tinycolor2/-/tinycolor2-1.4.2.tgz"
+  "version" "1.4.2"
+
 "tmp@^0.2.1":
   "integrity" "sha512-76SUhtfqR2Ijn+xllcI5P1oyannHNHByD80W1q447gU3mp9G9PSpGdWmjUOHRDPiHYacIk66W7ubDTuPF3BEtQ=="
   "resolved" "https://registry.npmjs.org/tmp/-/tmp-0.2.1.tgz"
@@ -5961,6 +5966,13 @@
   "resolved" "https://registry.npmjs.org/vm-browserify/-/vm-browserify-1.1.2.tgz"
   "version" "1.1.2"
 
+"vue-color-input@^1.0.6":
+  "integrity" "sha512-Z8Jh9AMb6MHM1zBhKCYa/H73WNlrM2WQnwB1WV6Nwz9lFIV75zUE9NgfzJ0AyKuCxVfPC0FZYObPI5IFGwRLMA=="
+  "resolved" "https://registry.npmjs.org/vue-color-input/-/vue-color-input-1.0.6.tgz"
+  "version" "1.0.6"
+  dependencies:
+    "tinycolor2" "^1.4.2"
+
 "vue-eslint-parser@^8.0.1":
   "integrity" "sha512-lhWjDXJhe3UZw2uu3ztX51SJAPGPey1Tff2RK3TyZURwbuI4vximQLzz4nQfCv8CZq4xx7uIiogHMMoSJPr33A=="
   "resolved" "https://registry.npmjs.org/vue-eslint-parser/-/vue-eslint-parser-8.0.1.tgz"
@@ -5983,6 +5995,14 @@
     "hash-sum" "^2.0.0"
     "loader-utils" "^2.0.0"
 
+"vue-native-color-picker@^1.2.0":
+  "integrity" "sha512-w18vOAFPJMtNnQftHqWSVlIhpZrW3x3wEhsSBBvelXMxvDNvFXt0T/bfFhaVaAEolnT2qUNDgYmDeOKpqqzlpA=="
+  "resolved" "https://registry.npmjs.org/vue-native-color-picker/-/vue-native-color-picker-1.2.0.tgz"
+  "version" "1.2.0"
+  dependencies:
+    "core-js" "^3.6.4"
+    "vue" "^2.6.11"
+
 "vue-plugin-load-script@^2.1.0":
   "integrity" "sha512-tFvedqtOiLI+jZ78dymg+f7bjiglCVC2lA0CXVIq7bXVqu1sssP40r6UNMpD9glGD+EhbGRdOa70Sb5ZuHjmTA=="
   "resolved" "https://registry.npmjs.org/vue-plugin-load-script/-/vue-plugin-load-script-2.1.0.tgz"
@@ -5996,7 +6016,12 @@
     "hash-sum" "^1.0.2"
     "loader-utils" "^1.0.2"
 
-"vue@^3.0.0", "vue@^3.2.27", "vue@3.2.30":
+"vue@^2.6.11":
+  "integrity" "sha512-x2284lgYvjOMj3Za7kqzRcUSxBboHqtgRE2zlos1qWaOye5yUmHn42LB1250NJBLRwEcdrB0JRwyPTEPhfQjiQ=="
+  "resolved" "https://registry.npmjs.org/vue/-/vue-2.6.14.tgz"
+  "version" "2.6.14"
+
+"vue@^3.0.0", "vue@^3.0.5", "vue@^3.2.27", "vue@3.2.30":
   "integrity" "sha512-ZmTFWVJUX2XADkuOB8GcLTuxnBLogjJBTNVrM7WsTnjqRQ+VR8bLNrvNsbn8vj/LaP5+0WFAPrpngOYE2x+e+Q=="
   "resolved" "https://registry.npmjs.org/vue/-/vue-3.2.30.tgz"
   "version" "3.2.30"

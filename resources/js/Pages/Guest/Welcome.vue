@@ -11,8 +11,8 @@
           <text-input v-model="form.name" :error="form.errors.name" required autofocus autocomplete="name" class="mt-10" label="Name" type="text" />
           <text-input v-model="form.phone" :error="form.errors.phone" required autocomplete="phone" class="mt-10" label="Phone" type="text" />
           <text-input v-model="form.email" :error="form.errors.email" required autocomplete="email" class="mt-10" label="Email" type="email" />
-          <text-input v-model="form.password" :error="form.errors.password" required class="mt-10" label="Password" type="password" />
-          <text-input v-model="form.password_confirmation" :error="form.errors.password_confirmation" required class="mt-10" label="Password Confirmation" type="password" />
+          <text-input v-model="form.password" :error="form.errors.password" required class="mt-10" label="Password" type="password" autocomplete="new-password" />
+          <text-input v-model="form.password_confirmation" :error="form.errors.password_confirmation" required class="mt-10" label="Password Confirmation" type="password" autocomplete="new-password"/>
         </div>
         <div class="flex px-10 py-4 bg-gray-100 border-t border-gray-100">
           <Link :href="'/login'" class="underline text-sm text-gray-600 hover:text-gray-900 mt-5"> Already registered? </Link>

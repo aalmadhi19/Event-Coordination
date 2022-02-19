@@ -36,7 +36,9 @@
         "tailwindcss": "^2.0.3",
         "uuid": "^8.3.2",
         "vue": "^3.2.27",
+        "vue-color-input": "^1.0.6",
         "vue-loader": "^16.2.0",
+        "vue-native-color-picker": "^1.2.0",
         "vue-plugin-load-script": "^2.1.0",
         "vue3-qrcode-reader": "^0.0.1",
         "webpack-node-externals": "^3.0.0"
