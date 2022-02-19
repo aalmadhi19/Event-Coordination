@@ -2,20 +2,22 @@
   <div>
     <Head title="Logout Gate" />
     <h1 class="mb-8 text-3xl font-bold">Logout Gate</h1>
+    <h1 class="mb-2 text-2xl font-bold">Tickets</h1>
+
     <div class="flex items-center justify-between mb-6">
       <search-filter v-model="form.search" class="mr-4 w-full max-w-md" @reset="reset">
         <label class="block text-gray-700">Status:</label>
         <select v-model="form.status" class="form-select mt-1 w-full">
+          <option disabled value="">Please select one</option>
           <option value="none">None</option>
           <option value="in">In</option>
           <option value="out">Out</option>
         </select>
       </search-filter>
-    <div class="w-50 h-20 md:inline">
-      <qrcode-stream @decode="onDecode" @init="onInit" />
+      <div class="w-50 h-20 md:inline">
+        <qrcode-stream @decode="onDecode" @init="onInit" />
+      </div>
     </div>
-        </div>
-
     <div class="bg-white rounded-md shadow overflow-x-auto">
       <table class="w-full whitespace-nowrap">
         <tr class="text-left font-bold">
