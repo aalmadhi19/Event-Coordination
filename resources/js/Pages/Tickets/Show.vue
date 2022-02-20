@@ -13,8 +13,12 @@
         <form>
           <div class="flex flex-wrap -mb-8 -mr-6 p-8">
             <text-input v-model="ticket.id" class="pb-8 pr-6 w-full lg:w-1/2" label="ID" />
-            <Image width="120" height="80" :src="'/' + ticket.qr_path" />
-            <a :href="`/tickets/download/${ticket.id}`" class="text-indigo-400 hover:text-indigo-600">Download</a>
+            <text-input v-model="ticket.user.name" class="pb-8 pr-6 w-full lg:w-1/2" label="Name" />
+            <text-input v-model="ticket.user.phone" class="pb-8 pr-6 w-full lg:w-1/2" label="Phone" />
+            <label class="form-label">QR Code:</label>
+            <Link class="flex items-center p-2 mt-4" :href="`/tickets/download/${ticket.id}`" tabindex="-1">
+              <Image width="120" height="80" :src="'/' + ticket.qr_path" />
+            </Link>
           </div>
         </form>
       </fieldset>
@@ -29,6 +33,7 @@ import TextInput from '@/Shared/TextInput'
 import FileInput from '@/Shared/FileInput'
 import LoadingButton from '@/Shared/LoadingButton'
 import Image from '@/Shared/Image'
+import Icon from '@/Shared/Icon'
 
 export default {
   components: {
@@ -38,6 +43,7 @@ export default {
     LoadingButton,
     TextInput,
     Image,
+    Icon,
   },
   layout: Layout,
   props: {

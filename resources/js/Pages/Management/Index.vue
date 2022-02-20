@@ -10,7 +10,12 @@
       <form v-for="setting in settings" :key="setting.id" @change="update(setting)">
         <div class="flex flex-wrap mb-2 -mr-6 p-4">
           <text-input v-if="setting.type == 'css'" v-model="setting.value" :label="setting.name" type="color" />
-          <file-input v-if="setting.type == 'logo'" v-model="setting.value"  :label="setting.name" />
+          <file-input v-if="setting.type == 'logo'" v-model="setting.value" :label="setting.name" />
+
+          <select-input v-if="setting.type == 'forms'" v-model="setting.value" class="pb-8 pr-6 w-full lg:w-1/2" label="Forms Source">
+            <option value="joform">Jot Form</option>
+            <option value="site">Site</option>
+          </select-input>
         </div>
       </form>
     </div>

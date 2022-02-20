@@ -31,6 +31,12 @@ class Ticket extends Model
         });
     }
 
+    public function scopeAuth($query)
+    {
+        $query->where('user_id', auth()->user()->id);
+    }
+
+
     public function user()
     {
         return $this->belongsTo(User::class);

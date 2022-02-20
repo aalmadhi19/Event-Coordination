@@ -67,6 +67,7 @@ class Settings extends Model
     public static function types()
     {
         return [
+            'forms',
             'logo',
             'css',
             'font',

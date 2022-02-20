@@ -9,6 +9,7 @@
         <div class="flex flex-wrap -mb-8 -mr-6 p-8">
           <text-input v-model="form.name" :error="form.errors.name" class="pb-8 pr-6 w-full lg:w-1/2" label="Name" />
           <select-input v-model="form.type" :error="form.errors.type" class="pb-8 pr-6 w-full lg:w-1/2" label="Type">
+            <option disabled value="">Please select one</option>
             <option v-for="type in types" :key="type.id" :value="type">{{ type }}</option>
           </select-input>
 
@@ -16,8 +17,15 @@
           <text-input v-if="form.type == 'css'" v-model="form.property" :error="form.errors.property" class="pb-8 pr-6 w-full lg:w-1/2" label="Property" />
           <text-input v-if="form.type == 'css'" v-model="form.value" :error="form.errors.value" class="pb-8 pr-6 w-full lg:w-1/2" label="Value" />
 
-          <select-input  v-if="form.type == 'font'"  v-model="form.value" :error="form.errors.value" class="pb-8 pr-6 w-full lg:w-1/2" label="Value">
+          <select-input v-if="form.type == 'font'" v-model="form.value" :error="form.errors.value" class="pb-8 pr-6 w-full lg:w-1/2" label="Value">
+            <option disabled value="">Please select one</option>
             <option v-for="font in fonts" :key="font.id" :value="font">{{ font.family }}</option>
+          </select-input>
+
+          <select-input v-if="form.type == 'forms'" v-model="form.value" :error="form.errors.value" class="pb-8 pr-6 w-full lg:w-1/2" label="Forms Source">
+            <option disabled value="">Please select one</option>
+            <option value="joform">Jot Form</option>
+            <option value="site">Site</option>
           </select-input>
 
           <file-input v-if="form.type == 'logo'" v-model="form.value" :error="form.errors.value" class="pb-8 pr-6 w-full lg:w-1/2" type="file" accept="image/*" label="Photo" />

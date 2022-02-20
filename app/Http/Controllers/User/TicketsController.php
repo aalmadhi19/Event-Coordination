@@ -6,19 +6,19 @@ use Inertia\Inertia;
 use App\Models\Ticket;
 use App\Models\JotForm;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Response;
-use Illuminate\Support\Facades\Crypt;
-use App\Http\Controllers\Admin\AdminBaseController;
 
-class TicketsController extends AdminBaseController
+class TicketsController extends Controller
 {
     public function index()
     {
         return Inertia::render('Tickets/Index', [
-            'tickets' => Ticket::where('user_id', auth()->user()->id)
+            'tickets' => Ticket::auth()
                 ->get()
                 ->transform(fn($ticket) => [
                     'id' => $ticket->id,
+                    'path' => $ticket->qr_path,
                     'created_at' => $ticket->created_at,
                 ]),
         ]);
@@ -34,13 +34,13 @@ class TicketsController extends AdminBaseController
     public function show($id)
     {
         return Inertia::render('Tickets/Show', [
-            'ticket' => Ticket::find($id)
+            'ticket' => Ticket::with('user')->auth()->findOrFail($id)
         ]);
     }
 
     public function download($id)
     {
-        $qrCode = Ticket::find($id)->qr_path;
+        $qrCode = Ticket::auth()->findOrFail($id)->qr_path;
         return Response::download($qrCode);
 
     }

@@ -10,7 +10,7 @@
     <dropdown placement="bottom-end" :class="isDropdown ? 'mb-28' : 'mb-4'">
       <template #default>
         <div>
-          <div class="group flex items-center py-3">
+          <div class="group flex items-center py-3 cursor-pointer select-none">
             <icon name="coordinate" class="mr-2 w-4 h-4" :class="isUrl('coordinate') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white'" />
             <span :class="isUrl('coordinate') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">Coordinate</span> <icon class="w-5 h-5 fill-gray-200 fill-indigo-400 group-hover:fill-white" name="cheveron-down" />
           </div>
