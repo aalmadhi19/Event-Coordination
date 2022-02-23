@@ -1,17 +1,17 @@
 <template>
   <div>
-    <Head title="Logout Gate" />
-    <h1 class="mb-8 text-3xl font-bold">Logout Gate</h1>
-    <h1 class="mb-2 text-2xl font-bold">Tickets</h1>
+    <Head :title="$t('Logout Gate')"  />
+    <h1 class="mb-8 text-3xl font-bold">{{ $t('Logout Gate') }}</h1>
+    <h1 class="mb-2 text-2xl font-bold">{{ $t('Tickets') }}</h1>
 
     <div class="flex items-center justify-between mb-6">
       <search-filter v-model="form.search" class="mr-4 w-full max-w-md" @reset="reset">
-        <label class="block text-gray-700">Status:</label>
+        <label class="block text-gray-700">{{ $t('Status') }}</label>
         <select v-model="form.status" class="form-select mt-1 w-full">
-          <option disabled value="">Please select one</option>
-          <option value="none">None</option>
-          <option value="in">In</option>
-          <option value="out">Out</option>
+          <option disabled value="">{{ $t('Please select one') }}</option>
+          <option value="none">{{ $t('None') }}</option>
+          <option value="in">{{ $t('In') }}</option>
+          <option value="out">{{ $t('Out') }}</option>
         </select>
       </search-filter>
       <div class="w-50 h-20 md:inline">
@@ -21,9 +21,9 @@
     <div class="bg-white rounded-md shadow overflow-x-auto">
       <table class="w-full whitespace-nowrap">
         <tr class="text-left font-bold">
-          <th class="pb-4 pt-6 px-6">Id</th>
-          <th class="pb-4 pt-6 px-6">Name</th>
-          <th class="pb-4 pt-6 px-6" colspan="2">Status</th>
+          <th class="pb-4 pt-6 px-6">{{ $t('Id') }}</th>
+          <th class="pb-4 pt-6 px-6">{{ $t('Name') }}</th>
+          <th class="pb-4 pt-6 px-6" colspan="2">{{ $t('Status') }}</th>
         </tr>
         <tr v-for="ticket in tickets.data" :key="ticket.id" class="hover:bg-gray-100 focus-within:bg-gray-100">
           <td class="border-t">

@@ -3,7 +3,7 @@
     <div class="mb-4">
       <Link class="group flex items-center py-3" href="/">
         <icon name="dashboard" class="mr-2 w-4 h-4" :class="isUrl('') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white'" />
-        <div :class="isUrl('') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">Dashboard</div>
+        <div :class="isUrl('') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">{{ $t('Dashboard') }}</div>
       </Link>
     </div>
 
@@ -12,18 +12,18 @@
         <div>
           <div class="group flex items-center py-3 cursor-pointer select-none">
             <icon name="coordinate" class="mr-2 w-4 h-4" :class="isUrl('coordinate') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white'" />
-            <span :class="isUrl('coordinate') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">Coordinate</span> <icon class="w-5 h-5 fill-gray-200 fill-indigo-400 group-hover:fill-white" name="cheveron-down" />
+            <span :class="isUrl('coordinate') ? 'text-white' : 'text-indigo-300 group-hover:text-white'"> {{ $t('Coordinate') }}</span> <icon class="w-5 h-5 fill-gray-200 fill-indigo-400 group-hover:fill-white" name="cheveron-down" />
           </div>
         </div>
       </template>
       <template #dropdown>
         <Link class="group flex items-center py-3" href="/coordinate/login">
           <icon name="login" class="mr-2 w-4 h-4" :class="isUrl('/coordinate/login') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white'" />
-          <div :class="isUrl('/coordinate/login') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">Login Gate</div>
+          <div :class="isUrl('/coordinate/login') ? 'text-white' : 'text-indigo-300 group-hover:text-white'"> {{ $t('Login Gate') }}</div>
         </Link>
         <Link class="group flex items-center py-3" href="/coordinate/logout">
           <icon name="logout" class="mr-2 w-4 h-4" :class="isUrl('/coordinate/logout') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white'" />
-          <div :class="isUrl('/coordinate/logout') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">Logout Gate</div>
+          <div :class="isUrl('/coordinate/logout') ? 'text-white' : 'text-indigo-300 group-hover:text-white'"> {{ $t('Logout Gate') }}</div>
         </Link>
       </template>
     </dropdown>
@@ -31,13 +31,13 @@
     <div class="mb-4">
       <Link class="group flex items-center py-3" href="/users">
         <icon name="users" class="mr-2 w-4 h-4" :class="isUrl('users') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white'" />
-        <div :class="isUrl('users') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">Users</div>
+        <div :class="isUrl('users') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">{{ $t('Users') }}</div>
       </Link>
     </div>
     <div class="mb-4">
       <Link class="group flex items-center py-3" href="/management">
         <icon name="gear" class="mr-2 w-4 h-4" :class="isUrl('management') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white'" />
-        <div :class="isUrl('management') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">Management</div>
+        <div :class="isUrl('management') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">{{ $t('Management') }}</div>
       </Link>
     </div>
   </div>
@@ -46,7 +46,7 @@
     <div class="mb-4">
       <Link class="group flex items-center py-3" href="/tickets">
         <icon name="ticket" class="mr-2 w-4 h-4" :class="isUrl('tickets') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white'" />
-        <div :class="isUrl('tickets') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">Tickets</div>
+        <div :class="isUrl('tickets') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">{{ $t('Tickets') }}</div>
       </Link>
     </div>
   </div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="h-full bg-gray-100">
+<html class="h-full bg-gray-100" >
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,7 +14,7 @@
     <script src="{{ mix('/js/app.js') }}" defer></script>
     @inertiaHead
 </head>
-<body class=" leading-none text-gray-700 antialiased">
+<body  dir="{{(App::isLocale('ar') ? 'rtl' : 'ltr')}}" class=" leading-none text-gray-700 antialiased">
     @inertia
 </body>
 </html>

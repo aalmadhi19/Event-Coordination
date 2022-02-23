@@ -38,7 +38,14 @@ class HandleInertiaRequests extends Middleware
     public function share(Request $request)
     {
         $logo = Settings::logo();
+
+        $dir    = '../resources/lang';
+        $locales = array_diff(scandir($dir), array('..', '.'));
+
+
+
         return array_merge(parent::share($request), [
+
             'auth' => function () use ($request) {
                 return [
                     'user' => $request->user() ? [
@@ -49,13 +56,21 @@ class HandleInertiaRequests extends Middleware
                     ] : null,
                 ];
             },
+
             'flash' => function () use ($request) {
                 return [
                     'success' => $request->session()->get('success'),
                     'error' => $request->session()->get('error'),
                 ];
             },
+
             'logo' => $logo,
+
+            'locale' => app()->getLocale(),
+
+            'locales' => $locales
+
+
         ]);
     }
 }

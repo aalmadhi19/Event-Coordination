@@ -1,9 +1,9 @@
 <template>
   <div>
-    <Head title="Dashboard" />
+    <Head :title="$t('Dashboard')"/>
     <div className="grid grid-cols-12 gap-6">
-      <Cards :icon="'fa-solid fa-users text-3xl'" :title="'Total ticket'" :value="tickets.length" />
-      <Cards :icon="'fa-solid fa-user-group text-3xl'" :title="'Total visitor at this moment'" :value="ticketsIn" />
+      <Cards :icon="'fa-solid fa-users text-3xl'" :title=" $t('Total tickets')" :value="tickets.length" />
+      <Cards :icon="'fa-solid fa-user-group text-3xl'" :title=" $t('Total visitor at this moment')" :value="ticketsIn" />
     </div>
   </div>
 </template>

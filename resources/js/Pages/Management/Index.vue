@@ -1,9 +1,9 @@
 <template>
   <div>
-    <Head :title="'Management'" />
+    <Head :title="$t('Management')" />
     <div class="flex items-center justify-between mb-6">
       <Link class="btn-indigo" href="/management/create">
-        <span>Create</span>
+        <span>{{ $t('Create') }}</span>
       </Link>
     </div>
     <div class="max-w-3xl bg-white rounded-md shadow overflow-hidden">
@@ -12,9 +12,9 @@
           <text-input v-if="setting.type == 'css'" v-model="setting.value" :label="setting.name" type="color" />
           <file-input v-if="setting.type == 'logo'" v-model="setting.value" :label="setting.name" />
 
-          <select-input v-if="setting.type == 'forms'" v-model="setting.value" class="pb-8 pr-6 w-full lg:w-1/2" label="Forms Source">
-            <option value="joform">Jot Form</option>
-            <option value="site">Site</option>
+          <select-input v-if="setting.type == 'forms'" v-model="setting.value" class="pb-8 pr-6 w-full lg:w-1/2" :label=" $t('Forms Source')">
+            <option value="joform">{{ $t('Jot Form') }}</option>
+            <option value="site">{{ $t('Site') }}</option>
           </select-input>
         </div>
       </form>

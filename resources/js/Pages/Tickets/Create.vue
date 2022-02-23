@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Head title="Tickets"/>
+    <Head :title="$t('Tickets')"/>
     <div>
     </div>
 

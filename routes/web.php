@@ -2,7 +2,6 @@
 
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
-
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\User\TicketsController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -58,6 +57,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('email/verify', [VerificationController::class, 'show'])->name('verification.notice');
 
     Route::delete('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+
+    Route::get('set-locale/{locale}', function ($locale) {
+        app()->setLocale($locale);
+        session()->put('locale', $locale);
+        return redirect()->back();
+    });
 });
 
 
@@ -67,7 +72,7 @@ Route::group(['middleware' => ['auth']], function () {
 // │     Admin                                                                    │
 // └──────────────────────────────────────────────────────────────────────────────┘
 
-Route::group(['middleware' => ['auth', 'verified','admin']], function () {
+Route::group(['middleware' => ['auth', 'verified', 'admin']], function () {
 
 
     // Dashboard
