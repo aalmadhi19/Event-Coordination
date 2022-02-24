@@ -2,6 +2,8 @@
 
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\Admin\FormController;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\User\TicketsController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -31,9 +33,12 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 Route::group(['middleware' => ['guest']], function () {
 
-    Route::get('/welcome', function () {
-        return Inertia::render('Guest/Welcome');
-    })->name('welcome');
+    // Route::get('/welcome', function () {
+    //     return Inertia::render('Guest/Welcome');
+    // })->name('welcome');
+
+    Route::get('welcome', [WelcomeController::class, 'index'])->name('welcome');
+
 
     Route::post('register', [RegistrationController::class, 'store'])->name('register');
 
@@ -95,6 +100,11 @@ Route::group(['middleware' => ['auth', 'verified', 'admin']], function () {
 
     // Management
     Route::resource('/management', ManagementController::class);
+
+
+    // Forms
+    Route::get('/forms/submission/{id}', [FormController::class, 'submission']);
+    Route::resource('/forms', FormController::class);
 });
 
 

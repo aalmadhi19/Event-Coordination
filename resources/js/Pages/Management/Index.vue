@@ -13,7 +13,7 @@
           <file-input v-if="setting.type == 'logo'" v-model="setting.value" :label="setting.name" />
 
           <select-input v-if="setting.type == 'forms'" v-model="setting.value" class="pb-8 pr-6 w-full lg:w-1/2" :label=" $t('Forms Source')">
-            <option value="joform">{{ $t('Jot Form') }}</option>
+            <option value="jotform">{{ $t('Jot Form') }}</option>
             <option value="site">{{ $t('Site') }}</option>
           </select-input>
         </div>

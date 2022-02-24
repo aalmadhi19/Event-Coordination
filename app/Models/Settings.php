@@ -29,6 +29,11 @@ class Settings extends Model
         $query->where('type', 'css');
     }
 
+    public function scopeForm($query)
+    {
+        $query->where('type', 'forms');
+    }
+
     public function setCss()
     {
         if ($this->type == "css") {
@@ -79,4 +84,11 @@ class Settings extends Model
         $fonts = Http::get('https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyCBpGhzEHM4mMMR-CsgDsw-oGsppkLebo4');
         return $fonts['items'];
     }
+
+
+    public static function formType()
+    {
+        return self::form()->first()->value;
+    }
+
 }

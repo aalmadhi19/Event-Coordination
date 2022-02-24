@@ -24,7 +24,7 @@
 
           <select-input v-if="form.type == 'forms'" v-model="form.value" :error="form.errors.value" class="pb-8 pr-6 w-full lg:w-1/2" :label="$t('Forms Source')">
             <option disabled value="">{{ $t('Please select one') }}</option>
-            <option value="joform">{{ $t('Jot Form') }}</option>
+            <option value="jotform">{{ $t('Jot Form') }}</option>
             <option value="site"> {{ $t('Site') }}</option>
           </select-input>
 
