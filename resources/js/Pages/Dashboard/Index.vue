@@ -12,11 +12,13 @@
 import { Head } from '@inertiajs/inertia-vue3'
 import Layout from '@/Shared/Layout'
 import Cards from '@/Shared/Cards'
+import Map from '@/Shared/Map'
 
 export default {
   components: {
     Head,
     Cards,
+    Map
   },
   layout: Layout,
 
@@ -27,7 +29,7 @@ export default {
   },
 
   created() {
-    this.interval = setInterval(() => this.getData(), 5000)
+    // this.interval = setInterval(() => this.getData(), 5000)
   },
 
   methods: {

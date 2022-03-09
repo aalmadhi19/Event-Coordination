@@ -41,12 +41,14 @@
               {{ ticket.status }}
             </Link>
           </td>
-          <td class="w-px border-t">
+          <td class="border-t">
             <Link class="flex items-center px-4" :href="`/tickets/${ticket.id}`" tabindex="-1">
-              <icon name="cheveron-right" class="block w-9 h-9 fill-gray-600" />
+              <!-- <icon name="cheveron-right" class="block w-9 h-9 fill-gray-600" /> -->
             </Link>
+            <Map v-if="ticket.id == 1" :preLocation="{ lat: 21.7136, long: 42.6753 }" />
           </td>
         </tr>
+
         <tr v-if="tickets.length === 0">
           <td class="px-6 py-4 border-t" colspan="4">{{ $t('No tickets found.') }}</td>
         </tr>
@@ -65,6 +67,7 @@ import throttle from 'lodash/throttle'
 import mapValues from 'lodash/mapValues'
 import SearchFilter from '@/Shared/SearchFilter'
 import Pagination from '@/Shared/Pagination'
+import Map from '@/Shared/Map'
 import { QrcodeStream, QrcodeDropZone, QrcodeCapture } from 'vue3-qrcode-reader'
 
 export default {
@@ -77,6 +80,7 @@ export default {
     QrcodeDropZone,
     QrcodeCapture,
     Pagination,
+    Map,
   },
   layout: Layout,
   props: {

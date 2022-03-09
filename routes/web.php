@@ -1,6 +1,7 @@
 <?php
 
 use Inertia\Inertia;
+use App\Events\SendLocation;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\Admin\FormController;
@@ -30,6 +31,13 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 // ┌──────────────────────────────────────────────────────────────────────────────┐
 // │     Guest                                                                    │
 // └──────────────────────────────────────────────────────────────────────────────┘
+Route::post('/map', function (Request $request) {
+    $lat = $request->input('lat');
+    $long = $request->input('long');
+    $location = ["lat"=>$lat, "long"=>$long];
+    event(new SendLocation($location));
+    return response()->json(['status'=>'success', 'data'=>$location]);
+});
 
 Route::group(['middleware' => ['guest']], function () {
 

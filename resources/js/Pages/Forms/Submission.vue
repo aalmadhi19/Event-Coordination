@@ -23,6 +23,7 @@
         </form>
       </fieldset>
     </div>
+  </div>
 </template>
 
 <script>

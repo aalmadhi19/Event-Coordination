@@ -17,6 +17,7 @@
         "laravel/tinker": "^2.5",
         "league/glide-laravel": "^1.0",
         "librenms/laravel-vue-i18n-generator": "^0.1.47",
+        "pusher/pusher-php-server": "^2.2",
         "simplesoftwareio/simple-qrcode": "^4.2",
         "spatie/laravel-permission": "^5.5"
     },

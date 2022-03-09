@@ -76,6 +76,7 @@ class Settings extends Model
             'logo',
             'css',
             'font',
+            'map',
         ];
     }
 
