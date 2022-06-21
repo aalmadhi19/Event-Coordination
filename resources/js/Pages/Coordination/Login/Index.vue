@@ -43,9 +43,8 @@
           </td>
           <td class="border-t">
             <Link class="flex items-center px-4" :href="`/tickets/${ticket.id}`" tabindex="-1">
-              <!-- <icon name="cheveron-right" class="block w-9 h-9 fill-gray-600" /> -->
+              <icon name="cheveron-right" class="block w-9 h-9 fill-gray-600" />
             </Link>
-            <Map v-if="ticket.id == 1" :preLocation="{ lat: 21.7136, long: 42.6753 }" />
           </td>
         </tr>
 

@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Models\User;
 use Inertia\Inertia;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\Admin\AdminBaseController;
-use Illuminate\Support\Facades\Hash;
 
 class UsersController extends AdminBaseController
 {

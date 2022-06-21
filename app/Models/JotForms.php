@@ -12,31 +12,29 @@ class JotForms extends Model
 {
     use HasFactory;
 
-
-
+    protected static function jotFormAPI()
+    {
+        return new JotForm(env('JOTFORM_API_KEY'));
+    }
 
     public static function forms()
     {
-        $jotformAPI = new JotForm(env('JOTFORM_API_KEY'));
-        return $jotformAPI->getForms();
+        return self::jotFormAPI()->getForms();
     }
 
     public static function form($id)
     {
-        $jotformAPI = new JotForm(env('JOTFORM_API_KEY'));
-        return $jotformAPI->getForm($id);
+        return self::jotFormAPI()->getForm($id);
     }
 
     public static function formSubmission($id)
     {
-        $jotformAPI = new JotForm(env('JOTFORM_API_KEY'));
-        return $jotformAPI->getFormSubmissions($id);
+        return self::jotFormAPI()->getFormSubmissions($id);
     }
 
 
     public static function submission($id)
     {
-        $jotformAPI = new JotForm(env('JOTFORM_API_KEY'));
-        return $jotformAPI->getSubmission($id);
+        return self::jotFormAPI()->getSubmission($id);
     }
 }

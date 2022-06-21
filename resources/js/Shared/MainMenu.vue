@@ -43,9 +43,9 @@
     </div>
 
     <div class="mb-4">
-      <Link class="group flex items-center py-3" href="/management">
-        <icon name="gear" class="mr-2 w-4 h-4" :class="isUrl('management') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white'" />
-        <div :class="isUrl('management') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">{{ $t('Management') }}</div>
+      <Link class="group flex items-center py-3" href="/settings">
+        <icon name="gear" class="mr-2 w-4 h-4" :class="isUrl('settings') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white'" />
+        <div :class="isUrl('settings') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">{{ $t('Settings') }}</div>
       </Link>
     </div>
   </div>

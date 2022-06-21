@@ -25,8 +25,6 @@
 
 <body dir="{{ App::isLocale('ar') ? 'rtl' : 'ltr' }}" class=" leading-none text-gray-700 antialiased">
     @inertia
-    {!! QrCode::generate('http://www.simplesoftware.io'); !!}
-
 
 </body>
 

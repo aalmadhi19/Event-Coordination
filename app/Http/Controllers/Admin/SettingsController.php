@@ -4,25 +4,23 @@ namespace App\Http\Controllers\Admin;
 
 use Inertia\Inertia;
 use App\Models\Settings;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Redirect;
 
-class ManagementController extends Controller
+class SettingsController extends AdminBaseController
 {
     public function index()
     {
-        return Inertia::render('Management/Index', [
+        return Inertia::render('Settings/Index', [
             'settings' => Settings::all(),
         ]);
     }
 
     public function create()
     {
-        return Inertia::render('Management/Create', [
+        return Inertia::render('Settings/Create', [
             'types' => Settings::types(),
             'fonts' => Settings::fonts(),
-
         ]);
     }
 
@@ -48,26 +46,10 @@ class ManagementController extends Controller
         return Redirect::back()->with('success', 'Settings created.');
     }
 
-    public function edit(Settings $setting)
-    {
-        return Inertia::render('Users/Edit', [
-            'setting' => $setting
-        ]);
-    }
 
-    public function update($id)
+    public function update(Settings $setting)
     {
-        Request::validate([
-            'name' => ['required'],
-            'type' => ['required'],
-            'selector' => ['nullable'],
-            'property' => ['nullable'],
-            'value' => ['required'],
-        ]);
-        $setting = Settings::find($id);
-
         $setting->update(Request::all());
-
         $setting->setCss();
 
         return Redirect::back()->with('success', 'Settings updated.');
@@ -76,7 +58,6 @@ class ManagementController extends Controller
     public function destroy(Settings $setting)
     {
         $setting->delete();
-
         return Redirect::back()->with('success', 'Settings deleted.');
     }
 }

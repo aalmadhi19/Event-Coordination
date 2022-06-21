@@ -9,7 +9,7 @@ use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\User\TicketsController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CoordinateController;
-use App\Http\Controllers\Admin\ManagementController;
+use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Auth\RegistrationController;
 use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
@@ -25,28 +25,14 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 |
 */
 
-// Guest
-
 
 // ┌──────────────────────────────────────────────────────────────────────────────┐
 // │     Guest                                                                    │
 // └──────────────────────────────────────────────────────────────────────────────┘
-Route::post('/map', function (Request $request) {
-    $lat = $request->input('lat');
-    $long = $request->input('long');
-    $location = ["lat"=>$lat, "long"=>$long];
-    event(new SendLocation($location));
-    return response()->json(['status'=>'success', 'data'=>$location]);
-});
 
 Route::group(['middleware' => ['guest']], function () {
 
-    // Route::get('/welcome', function () {
-    //     return Inertia::render('Guest/Welcome');
-    // })->name('welcome');
-
     Route::get('welcome', [WelcomeController::class, 'index'])->name('welcome');
-
 
     Route::post('register', [RegistrationController::class, 'store'])->name('register');
 
@@ -80,7 +66,6 @@ Route::group(['middleware' => ['auth']], function () {
 
 
 
-
 // ┌──────────────────────────────────────────────────────────────────────────────┐
 // │     Admin                                                                    │
 // └──────────────────────────────────────────────────────────────────────────────┘
@@ -106,8 +91,8 @@ Route::group(['middleware' => ['auth', 'verified', 'admin']], function () {
     Route::resource('/coordinate', CoordinateController::class);
 
 
-    // Management
-    Route::resource('/management', ManagementController::class);
+    // Settings
+    Route::resource('/settings', SettingsController::class);
 
 
     // Forms

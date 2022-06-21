@@ -1,8 +1,8 @@
 <template>
   <div>
-    <Head :title="$t('Management')" />
+    <Head :title="$t('Settings')" />
     <div class="flex items-center justify-between mb-6">
-      <Link class="btn-indigo" href="/management/create">
+      <Link class="btn-indigo" href="/settings/create">
         <span>{{ $t('Create') }}</span>
       </Link>
     </div>
@@ -16,7 +16,7 @@
             <option value="jotform">{{ $t('Jot Form') }}</option>
             <option value="site">{{ $t('Site') }}</option>
           </select-input>
-          <map-input v-if="setting.type == 'map'" :label="setting.name" class="pb-8 pr-6 w-full"  v-model="setting.value"  :preLocation="JSON.parse(setting.value)" @locationChange="update(setting)" />
+          <!-- <map-input v-if="setting.type == 'map'" :label="setting.name" class="pb-8 pr-6 w-full"  v-model="setting.value"  :preLocation="JSON.parse(setting.value)" @locationChange="update(setting)" /> -->
         </div>
       </form>
     </div>
@@ -67,7 +67,7 @@ export default {
 
   methods: {
     update(setting) {
-      this.$inertia.put(`/management/${setting.id}`, setting)
+      this.$inertia.put(`/settings/${setting.id}`, setting)
     },
     destroy() {
       if (confirm('Are you sure you want to delete this user?')) {

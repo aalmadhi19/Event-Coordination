@@ -2,11 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Form;
 use Inertia\Inertia;
 use App\Models\JotForms;
-use App\Models\Settings;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Admin\AdminBaseController;
 
 class FormController extends AdminBaseController
