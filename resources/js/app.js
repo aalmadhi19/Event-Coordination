@@ -12,7 +12,7 @@ InertiaProgress.init()
 
 createInertiaApp({
   resolve: name => require(`./Pages/${name}`),
-  title: title => title ? `${title} - The Nizer ` : 'The Nizer',
+  title: title => title ? `${title} - Event-Coordination ` : 'Event-Coordination',
   setup({ el, App, props, plugin }) {
      const i18n = createI18n({
             locale: props.initialPage.props.locale, // user locale by props

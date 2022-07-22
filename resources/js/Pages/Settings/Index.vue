@@ -1,19 +1,19 @@
 <template>
   <div>
-    <Head :title="$t('Management')" />
+    <Head :title="$t('Settings')" />
     <div class="flex items-center justify-between mb-6">
-      <Link class="btn-indigo" href="/management/create">
+      <Link class="btn-indigo" href="/settings/create">
         <span>{{ $t('Create') }}</span>
       </Link>
     </div>
     <div class="max-w-3xl bg-white rounded-md shadow overflow-hidden">
-      <form v-for="setting in settings" :key="setting.id" @change="update(setting)">
+      <form v-for="setting in settings" :key="setting.id" @change="update(setting)" >
         <div class="flex flex-wrap mb-2 -mr-6 p-4">
           <text-input v-if="setting.type == 'css'" v-model="setting.value" :label="setting.name" type="color" />
           <file-input v-if="setting.type == 'logo'" v-model="setting.value" :label="setting.name" />
 
-          <select-input v-if="setting.type == 'forms'" v-model="setting.value" class="pb-8 pr-6 w-full lg:w-1/2" :label=" $t('Forms Source')">
-            <option value="joform">{{ $t('Jot Form') }}</option>
+          <select-input v-if="setting.type == 'forms'" v-model="setting.value" class="pb-8 pr-6 w-full lg:w-1/2" :label="$t('Forms Source')">
+            <option value="jotform">{{ $t('Jot Form') }}</option>
             <option value="site">{{ $t('Site') }}</option>
           </select-input>
         </div>
@@ -59,9 +59,10 @@ export default {
       }),
     }
   },
+
   methods: {
     update(setting) {
-      this.$inertia.put(`/management/${setting.id}`, setting)
+      this.$inertia.put(`/settings/${setting.id}`, setting)
     },
     destroy() {
       if (confirm('Are you sure you want to delete this user?')) {

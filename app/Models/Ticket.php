@@ -76,6 +76,7 @@ class Ticket extends Model
 
         $ticket->status = 'in';
         $ticket->update();
+        // $this->getLocation();
         return [
             'type' => "success",
             'message' => "Enjoy!"
@@ -87,4 +88,13 @@ class Ticket extends Model
         $ticket->status = 'out';
         $ticket->update();
     }
+
+    // public static function getLocation(self $ticket)
+    // {
+    //     if (navigator . geolocation) {
+    //         navigator . geolocation . getCurrentPosition(showPosition);
+    //     } else {
+    //         x . innerHTML = "Geolocation is not supported by this browser.";
+    //     }
+    // }
 }

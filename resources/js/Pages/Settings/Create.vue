@@ -24,11 +24,12 @@
 
           <select-input v-if="form.type == 'forms'" v-model="form.value" :error="form.errors.value" class="pb-8 pr-6 w-full lg:w-1/2" :label="$t('Forms Source')">
             <option disabled value="">{{ $t('Please select one') }}</option>
-            <option value="joform">{{ $t('Jot Form') }}</option>
-            <option value="site"> {{ $t('Site') }}</option>
+            <option value="jotform">{{ $t('Jot Form') }}</option>
+            <option value="site">{{ $t('Site') }}</option>
           </select-input>
 
           <file-input v-if="form.type == 'logo'" v-model="form.value" :error="form.errors.value" class="pb-8 pr-6 w-full lg:w-1/2" type="file" accept="image/*" label="Photo" />
+
         </div>
         <div class="flex items-center justify-end px-8 py-4 bg-gray-50 border-t border-gray-100">
           <loading-button :loading="form.processing" class="btn-indigo" type="submit">{{ $t('Create Setting') }}</loading-button>

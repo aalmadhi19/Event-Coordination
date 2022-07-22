@@ -19,11 +19,11 @@
       <template #dropdown>
         <Link class="group flex items-center py-3" href="/coordinate/login">
           <icon name="login" class="mr-2 w-4 h-4" :class="isUrl('/coordinate/login') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white'" />
-          <div :class="isUrl('/coordinate/login') ? 'text-white' : 'text-indigo-300 group-hover:text-white'"> {{ $t('Login Gate') }}</div>
+          <div :class="isUrl('/coordinate/login') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">{{ $t('Login Gate') }}</div>
         </Link>
         <Link class="group flex items-center py-3" href="/coordinate/logout">
           <icon name="logout" class="mr-2 w-4 h-4" :class="isUrl('/coordinate/logout') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white'" />
-          <div :class="isUrl('/coordinate/logout') ? 'text-white' : 'text-indigo-300 group-hover:text-white'"> {{ $t('Logout Gate') }}</div>
+          <div :class="isUrl('/coordinate/logout') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">{{ $t('Logout Gate') }}</div>
         </Link>
       </template>
     </dropdown>
@@ -34,12 +34,20 @@
         <div :class="isUrl('users') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">{{ $t('Users') }}</div>
       </Link>
     </div>
+
     <div class="mb-4">
-      <Link class="group flex items-center py-3" href="/management">
-        <icon name="gear" class="mr-2 w-4 h-4" :class="isUrl('management') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white'" />
-        <div :class="isUrl('management') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">{{ $t('Management') }}</div>
+      <Link class="group flex items-center py-3" href="/forms">
+        <icon name="form" class="mr-2 w-4 h-4" :class="isUrl('forms') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white'" />
+        <div :class="isUrl('forms') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">{{ $t('Forms') }}</div>
       </Link>
     </div>
+
+    <!-- <div class="mb-4">
+      <Link class="group flex items-center py-3" href="/settings">
+        <icon name="gear" class="mr-2 w-4 h-4" :class="isUrl('settings') ? 'fill-white' : 'fill-indigo-400 group-hover:fill-white'" />
+        <div :class="isUrl('settings') ? 'text-white' : 'text-indigo-300 group-hover:text-white'">{{ $t('Settings') }}</div>
+      </Link>
+    </div> -->
   </div>
 
   <div v-else>

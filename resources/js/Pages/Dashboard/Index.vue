@@ -26,10 +26,6 @@ export default {
     ticketsOut: Number,
   },
 
-  created() {
-    this.interval = setInterval(() => this.getData(), 5000)
-  },
-
   methods: {
     getData() {
       var currentUrl = window.location.pathname

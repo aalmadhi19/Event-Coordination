@@ -41,12 +41,13 @@
               {{ ticket.status }}
             </Link>
           </td>
-          <td class="w-px border-t">
+          <td class="border-t">
             <Link class="flex items-center px-4" :href="`/tickets/${ticket.id}`" tabindex="-1">
               <icon name="cheveron-right" class="block w-9 h-9 fill-gray-600" />
             </Link>
           </td>
         </tr>
+
         <tr v-if="tickets.length === 0">
           <td class="px-6 py-4 border-t" colspan="4">{{ $t('No tickets found.') }}</td>
         </tr>
@@ -62,7 +63,6 @@ import Icon from '@/Shared/Icon'
 import pickBy from 'lodash/pickBy'
 import Layout from '@/Shared/Layout'
 import throttle from 'lodash/throttle'
-import mapValues from 'lodash/mapValues'
 import SearchFilter from '@/Shared/SearchFilter'
 import Pagination from '@/Shared/Pagination'
 import { QrcodeStream, QrcodeDropZone, QrcodeCapture } from 'vue3-qrcode-reader'
