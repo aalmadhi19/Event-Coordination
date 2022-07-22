@@ -16,7 +16,6 @@
             <option value="jotform">{{ $t('Jot Form') }}</option>
             <option value="site">{{ $t('Site') }}</option>
           </select-input>
-          <!-- <map-input v-if="setting.type == 'map'" :label="setting.name" class="pb-8 pr-6 w-full"  v-model="setting.value"  :preLocation="JSON.parse(setting.value)" @locationChange="update(setting)" /> -->
         </div>
       </form>
     </div>
@@ -32,8 +31,6 @@ import FileInput from '@/Shared/FileInput'
 import SelectInput from '@/Shared/SelectInput'
 import LoadingButton from '@/Shared/LoadingButton'
 import TrashedMessage from '@/Shared/TrashedMessage'
-import Map from '@/Shared/Map'
-import MapInput from '@/Shared/MapInput'
 
 export default {
   components: {
@@ -45,8 +42,6 @@ export default {
     SelectInput,
     TextInput,
     TrashedMessage,
-    Map,
-    MapInput,
   },
   layout: Layout,
   props: {

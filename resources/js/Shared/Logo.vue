@@ -1,5 +1,5 @@
 <template>
-  <img :width="width" :height="height" :src="$page.props.logo" class="custom-logo" alt="The Nizer" loading="lazy" />
+  <img :width="width" :height="height" :src="$page.props.logo" class="custom-logo" alt="Event-Coordination" loading="lazy" />
 </template>
 <script>
 

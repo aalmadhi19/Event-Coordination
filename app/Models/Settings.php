@@ -66,7 +66,7 @@ class Settings extends Model
         if ($logo) {
             return '/logo/' . explode('/', $logo->value)[2];
         }
-        return '/assets/The-Nizer1.png';
+        return '/assets/logo.jpeg';
     }
 
     public static function types()

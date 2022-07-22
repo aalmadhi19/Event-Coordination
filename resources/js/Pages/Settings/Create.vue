@@ -30,7 +30,6 @@
 
           <file-input v-if="form.type == 'logo'" v-model="form.value" :error="form.errors.value" class="pb-8 pr-6 w-full lg:w-1/2" type="file" accept="image/*" label="Photo" />
 
-          <MapInput v-if="form.type == 'map'" v-model="form.value" :error="form.errors.value" />
         </div>
         <div class="flex items-center justify-end px-8 py-4 bg-gray-50 border-t border-gray-100">
           <loading-button :loading="form.processing" class="btn-indigo" type="submit">{{ $t('Create Setting') }}</loading-button>
@@ -47,7 +46,6 @@ import FileInput from '@/Shared/FileInput'
 import TextInput from '@/Shared/TextInput'
 import SelectInput from '@/Shared/SelectInput'
 import LoadingButton from '@/Shared/LoadingButton'
-import MapInput from '@/Shared/MapInput'
 
 export default {
   components: {
@@ -57,7 +55,6 @@ export default {
     LoadingButton,
     SelectInput,
     TextInput,
-    MapInput,
   },
   layout: Layout,
   remember: 'form',

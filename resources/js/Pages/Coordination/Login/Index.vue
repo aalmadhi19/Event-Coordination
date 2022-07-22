@@ -63,10 +63,8 @@ import Icon from '@/Shared/Icon'
 import pickBy from 'lodash/pickBy'
 import Layout from '@/Shared/Layout'
 import throttle from 'lodash/throttle'
-import mapValues from 'lodash/mapValues'
 import SearchFilter from '@/Shared/SearchFilter'
 import Pagination from '@/Shared/Pagination'
-import Map from '@/Shared/Map'
 import { QrcodeStream, QrcodeDropZone, QrcodeCapture } from 'vue3-qrcode-reader'
 
 export default {
@@ -79,7 +77,6 @@ export default {
     QrcodeDropZone,
     QrcodeCapture,
     Pagination,
-    Map,
   },
   layout: Layout,
   props: {
