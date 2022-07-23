@@ -16,8 +16,8 @@ class CreateTicketsTable extends Migration
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
             $table->string('user_id');
-            $table->string('qr_path');
-            $table->string('form_id');
+            $table->string('qr_path')->nullable();
+            $table->string('form_id')->nullable();
             $table->string('status')->default('none');
             $table->date('expiration');
             $table->timestamps();
